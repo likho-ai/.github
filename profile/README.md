@@ -11,12 +11,13 @@ Documentation: **https://likho-ai.github.io/likho-docs/**
 | Repository | What it is | State |
 | --- | --- | --- |
 | [likho-infra](https://github.com/likho-ai/likho-infra) | The local stack (PostgreSQL, MongoDB, Redis, NATS JetStream, S3 store, Meilisearch, gateway) and the shared CI workflows | working |
-| [likho-contracts](https://github.com/likho-ai/likho-contracts) | gRPC definitions, event schemas, NATS stream layout; Python package | v0.2.0 |
+| [likho-contracts](https://github.com/likho-ai/likho-contracts) | gRPC definitions, event schemas, NATS stream layout; Python and Go packages | v0.4.1 |
 | [likho-language](https://github.com/likho-ai/likho-language) | Hinglish transliteration, spelling table, glossary and language policy (gRPC, Python) | v0.1 |
+| [likho-media](https://github.com/likho-ai/likho-media) | Uploads, waveforms, playable audio and signed links (Go, FFmpeg) | v0.1 |
 | [likho-transcription](https://github.com/likho-ai/likho-transcription) | The speech engine and the transcription service: a recording becomes a two-layer transcript (Python, faster-whisper) | v0.1 |
 | [likho-ui](https://github.com/likho-ai/likho-ui) | Design system: colour tokens for light and dark, shared React components | v0.1 |
 | [likho-docs](https://github.com/likho-ai/likho-docs) | The documentation site | live |
-| likho-media, likho-api, likho-search | Audio storage, the API and search | next |
+| likho-api, likho-search | The API (login, recordings, jobs) and search | next |
 | likho-web-shell, likho-mfe-*, likho-web-sdk | The web app as micro-frontends | next |
 
 ## How to start
