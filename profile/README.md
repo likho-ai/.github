@@ -16,10 +16,14 @@ Documentation: **https://likho-ai.github.io/likho-docs/**
 | [likho-media](https://github.com/likho-ai/likho-media) | Uploads, waveforms, playable audio and signed links (Go, FFmpeg) | v0.1 |
 | [likho-transcription](https://github.com/likho-ai/likho-transcription) | The speech engine and the transcription service: a recording becomes a two-layer transcript (Python, faster-whisper) | v0.1 |
 | [likho-api](https://github.com/likho-ai/likho-api) | Sign-in, workspaces, recordings, jobs and live lines; GraphQL for the web apps, REST for scripts (NestJS) | v0.1 |
+| [likho-web-sdk](https://github.com/likho-ai/likho-web-sdk) | Typed GraphQL client and React hooks for likho-api | v0.1 |
+| [likho-web-shell](https://github.com/likho-ai/likho-web-shell) | The web app: sign-in, navigation, theme, home, vocabulary, settings; loads the apps (React, Vite, Module Federation) | v0.1 |
+| [likho-mfe-library](https://github.com/likho-ai/likho-mfe-library) | Recordings list, uploads, microphone recording | v0.1 |
+| [likho-mfe-transcript](https://github.com/likho-ai/likho-mfe-transcript) | Player, both text layers, live lines, versions, downloads | v0.1 |
 | [likho-ui](https://github.com/likho-ai/likho-ui) | Design system: colour tokens for light and dark, shared React components | v0.1 |
 | [likho-docs](https://github.com/likho-ai/likho-docs) | The documentation site | live |
 | likho-search | Search across every line of every call | next |
-| likho-web-shell, likho-mfe-*, likho-web-sdk | The web app as micro-frontends | next |
+| likho-deploy, likho-connector-ameyo, likho-search | Kubernetes and the environments, the dialer connector, search | next |
 
 ## How to start
 
