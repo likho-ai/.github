@@ -24,7 +24,7 @@ Documentation: **https://likho-ai.github.io/likho-docs/**
 | [likho-ui](https://github.com/likho-ai/likho-ui) | Design system: colour tokens for light and dark, shared React components | v0.1 |
 | [likho-docs](https://github.com/likho-ai/likho-docs) | The documentation site | live |
 | [likho-search](https://github.com/likho-ai/likho-search) | Every line of every call in Meilisearch, searched with typo tolerance (Go) | v0.1 |
-| likho-connector-ameyo | The dialer connector: fetches calls from Ameyo, writes transcripts back to the CRM | in progress |
+| [likho-connector-ameyo](https://github.com/likho-ai/likho-connector-ameyo) | The dialer connector: calls from Ameyo by schedule or by id into Likho, transcripts back to the CRM (Node, TypeScript) | v0.1 |
 
 ## How to start
 
