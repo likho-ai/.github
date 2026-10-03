@@ -20,10 +20,11 @@ Documentation: **https://likho-ai.github.io/likho-docs/**
 | [likho-web-shell](https://github.com/likho-ai/likho-web-shell) | The web app: sign-in, navigation, theme, home, vocabulary, settings; loads the apps (React, Vite, Module Federation) | v0.1 |
 | [likho-mfe-library](https://github.com/likho-ai/likho-mfe-library) | Recordings list, uploads, microphone recording | v0.1 |
 | [likho-mfe-transcript](https://github.com/likho-ai/likho-mfe-transcript) | Player, both text layers, live lines, versions, downloads | v0.1 |
+| [likho-deploy](https://github.com/likho-ai/likho-deploy) | Likho in Kubernetes: Helm charts, the environments, Skaffold (minikube locally) | v0.1 |
 | [likho-ui](https://github.com/likho-ai/likho-ui) | Design system: colour tokens for light and dark, shared React components | v0.1 |
 | [likho-docs](https://github.com/likho-ai/likho-docs) | The documentation site | live |
 | likho-search | Search across every line of every call | next |
-| likho-deploy, likho-connector-ameyo, likho-search | Kubernetes and the environments, the dialer connector, search | next |
+| likho-connector-ameyo, likho-search | The dialer connector, search | next |
 
 ## How to start
 
