@@ -56,6 +56,10 @@ call's transcript beside its own recording button through a short-lived token.
 
 ## How to start
 
+The documentation's **[Setup and start](https://likho-ai.github.io/likho-docs/#/page/setup%20and%20start)** page
+takes a machine from nothing to the first transcribed call: the tools, the stack, each service
+and app in order, the first sign-in, the settings and secrets, and the cluster.
+
 1. Clone `likho-infra` and run `.\stack.ps1 up` (Docker Desktop must be running), then `.\stack.ps1 smoke`.
-2. Read the documentation, starting with Introduction; the Roadmap page says what is done and what comes next.
-3. Every repository has a README that says how to run it alone and how to work on it.
+2. Start the services and the web apps as that page says, open http://localhost:8080 and sign in.
+3. Every repository has a README that says how to run it alone and how to work on it; the Roadmap page says what is done and what comes next.
