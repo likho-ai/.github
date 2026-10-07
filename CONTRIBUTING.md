@@ -4,8 +4,30 @@ These rules apply to every repository in the organisation.
 
 ## Branches and pull requests
 
-* `main` is always releasable. Work on a branch (`feat/short-name`, `fix/short-name`) and open
-  a pull request. A pull request is merged when CI is green.
+Every repository has three long-lived branches, and a change travels through them in order:
+
+```
+feat/… fix/… ──squash──▶ development ──merge──▶ staging ──merge──▶ main
+                         (default)               (staging env)      (production, releases)
+hotfix/… ────────────────────────────────────────────────────────▶ main ──back-merge──▶ development
+```
+
+| Branch | What it is | Into it come | Merge | Needs |
+| --- | --- | --- | --- | --- |
+| `development` | the default branch; where work lands | feature branches, back-merges from `main` | squash | CI green |
+| `staging` | what the staging environment runs (`:staging` images) | `development`, `hotfix/…` | merge commit | CI green, 1 approval |
+| `main` | production; releases are cut here (`:latest`, `:x.y.z`) | `staging`, `hotfix/…`, the release pull request | merge commit | CI green, 1 approval |
+
+* Start every change from `development`: `git switch development && git pull && git switch -c feat/short-name`.
+* Promote with a pull request `development → staging`, then `staging → main`. Never squash a
+  promotion: the branches would drift apart.
+* A fix production cannot wait for: `hotfix/short-name` from `main`, a pull request into `main`;
+  after it merges, the back-merge pull request brings it into `development`.
+* The `branch-flow` check fails a pull request that skips a stage (`development → main`, say).
+* Nobody pushes to the three branches directly, and none of them can be force-pushed or deleted.
+  A pull request into `staging` or `main` needs the approval of a code owner who is not its author;
+  approvals are dismissed when new commits arrive, and every review conversation must be resolved.
+  An admin may merge past the rules in an emergency, and only through a pull request.
 * Keep a pull request to one change. If the description needs the word "and", split it.
 
 ## Commit messages
@@ -22,13 +44,15 @@ code; the body says why. Versions and changelogs are generated from these messag
   breaking change is a minor). Merging it tags the version, makes the GitHub release and builds
   the image (`ghcr.io/likho-ai/<repo>:x.y.z`) or the package. Commits without a type are not in
   the changelog. likho-contracts is still tagged by hand (its Go module needs its own tag).
-* **Dependencies** are Renovate's (settings in this repository's `default.json`): one pull request
-  a week per repository for minor and patch updates, one per image and per major update, Likho's
-  own packages at once, a Dependency Dashboard issue in each repository.
+* **Dependencies** are Renovate's (settings in this repository's `default.json`), into
+  `development`: one pull request a week per repository for minor and patch updates, one per image
+  and per major update, Likho's own packages at once, a Dependency Dashboard issue in each repository.
 * **Reviews**: `.github/CODEOWNERS` in each repository names who is asked.
-* **`main`** takes changes only through pull requests whose CI is green; no force pushes, no
-  deletion. Release pull requests are opened by a bot, so CI does not run on them: an admin
-  merges them past the check (they change only the version and the changelog).
+* **Bot pull requests** (the release pull request into `main`, the back-merge into `development`)
+  are opened with the workflow's own token, so CI does not run on them: an admin merges them past
+  the check. They change only versions, changelogs and what `main` already has.
+* **Images**: every push to `development`, `staging` or `main` publishes `ghcr.io/likho-ai/<repo>`
+  tagged with the branch and `sha-<commit>`; `main` also `latest`, a release `x.y.z` and `x.y`.
 
 ## Interfaces
 

@@ -3,6 +3,7 @@
   "description": "Renovate settings shared by every Likho repository: each repository's renovate.json extends local>likho-ai/.github.",
   "extends": ["config:recommended", ":semanticCommits", ":dependencyDashboard"],
   "timezone": "Asia/Kolkata",
+  "baseBranchPatterns": ["development"],
   "schedule": ["before 10am on monday"],
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
