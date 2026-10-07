@@ -8,6 +8,7 @@
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
   "labels": ["dependencies"],
+  "vulnerabilityAlerts": { "enabled": false, "description": "Security updates are Dependabot's (.github/dependabot.yml in each repository); Renovate does the routine ones" },
   "lockFileMaintenance": { "enabled": true, "schedule": ["before 10am on the first day of the month"] },
   "packageRules": [
     {

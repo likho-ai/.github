@@ -47,6 +47,14 @@ code; the body says why. Versions and changelogs are generated from these messag
 * **Dependencies** are Renovate's (settings in this repository's `default.json`), into
   `development`: one pull request a week per repository for minor and patch updates, one per image
   and per major update, Likho's own packages at once, a Dependency Dashboard issue in each repository.
+* **Security**: Dependabot opens a pull request into `development` as soon as a dependency has a
+  published vulnerability (`fix(deps): …`, labelled `security`); CodeQL scans every pull request
+  for security bugs; secret scanning with push protection refuses a push that contains a password,
+  key or token - remove it from the commit, never bypass the block.
+* **Checks on every pull request**: the branch flow and a Conventional Commit title; then the
+  repository's CI - TypeScript: ESLint (oxlint in the NestJS services), Prettier, `tsc`, tests;
+  Python: ruff, ruff format, mypy, pytest; Go: gofmt, go vet, golangci-lint, tests. Format before
+  you push: `pnpm format`, `uv run ruff format .`, `gofmt -w .`.
 * **Reviews**: `.github/CODEOWNERS` in each repository names who is asked.
 * **Bot pull requests** (the release pull request into `main`, the back-merge into `development`)
   are opened with the workflow's own token, so CI does not run on them: an admin merges them past
