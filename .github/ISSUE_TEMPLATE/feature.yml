@@ -1,0 +1,20 @@
+name: Something new
+description: A change or a new thing Likho should do.
+labels: [enhancement, triage]
+assignees: [sandeep-atiya, AdminAtiya]
+body:
+  - type: textarea
+    id: need
+    attributes:
+      label: What someone needs to do
+      description: Who, and what they cannot do today. Not the solution yet.
+    validations: { required: true }
+  - type: textarea
+    id: idea
+    attributes:
+      label: An idea of how
+  - type: textarea
+    id: done
+    attributes:
+      label: Done when
+      description: What someone can do once this is built.

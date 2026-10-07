@@ -1,0 +1,33 @@
+name: Something is broken
+description: Likho does something wrong, or fails.
+labels: [bug, triage]
+assignees: [sandeep-atiya, AdminAtiya]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you saw, and what you expected instead.
+    validations: { required: true }
+  - type: textarea
+    id: steps
+    attributes:
+      label: How to make it happen again
+      placeholder: "1. Open the library\n2. Upload a call\n3. ..."
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options: [development (a laptop), staging, production]
+    validations: { required: true }
+  - type: input
+    id: version
+    attributes:
+      label: Version or image
+      placeholder: "likho-api 0.11.0, or ghcr.io/likho-ai/likho-api:sha-…"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: The lines around the error. No phone numbers, names, recordings or customer data - these repositories are public.
+      render: text
