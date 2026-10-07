@@ -24,10 +24,13 @@ hotfix/… ───────────────────────
 * A fix production cannot wait for: `hotfix/short-name` from `main`, a pull request into `main`;
   after it merges, the back-merge pull request brings it into `development`.
 * The `branch-flow` check fails a pull request that skips a stage (`development → main`, say).
-* Nobody pushes to the three branches directly, and none of them can be force-pushed or deleted.
-  A pull request into `staging` or `main` needs the approval of a code owner who is not its author;
-  approvals are dismissed when new commits arrive, and every review conversation must be resolved.
-  An admin may merge past the rules in an emergency, and only through a pull request.
+* Members change the three branches only through pull requests. A pull request into `staging` or
+  `main` needs the approval of a code owner who is not its author; approvals are dismissed when new
+  commits arrive, and every review conversation must be resolved.
+* The organisation's admin (sandeep-atiya) is not held to those rules: an admin may push to any of
+  the three branches and merge any pull request without an approval or green checks.
+* Nobody - admin included - can force-push or delete `development`, `staging` or `main`: their
+  history is never rewritten.
 * Keep a pull request to one change. If the description needs the word "and", split it.
 
 ## Commit messages
