@@ -3,10 +3,12 @@
   "description": "Renovate settings shared by every Likho repository: each repository's renovate.json extends local>likho-ai/.github.",
   "extends": ["config:recommended", ":semanticCommits", ":dependencyDashboard"],
   "timezone": "Asia/Kolkata",
+  "baseBranchPatterns": ["development"],
   "schedule": ["before 10am on monday"],
   "prConcurrentLimit": 5,
   "prHourlyLimit": 2,
   "labels": ["dependencies"],
+  "vulnerabilityAlerts": { "enabled": false, "description": "Security updates are Dependabot's (.github/dependabot.yml in each repository); Renovate does the routine ones" },
   "lockFileMaintenance": { "enabled": true, "schedule": ["before 10am on the first day of the month"] },
   "packageRules": [
     {
