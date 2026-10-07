@@ -14,6 +14,22 @@ These rules apply to every repository in the organisation.
 `refactor: …`, `test: …`, `chore: …`. The first line says what changed for the user of the
 code; the body says why. Versions and changelogs are generated from these messages.
 
+## Releases, dependencies, reviews
+
+* **Releases** are release-please's: it keeps a pull request "chore(main): release x.y.z" open with
+  the next version and the changelog, worked out from the commit titles since the last release
+  (`fix:` a patch, `feat:` a minor, `feat!:` or a `BREAKING CHANGE:` footer a major; before 1.0 a
+  breaking change is a minor). Merging it tags the version, makes the GitHub release and builds
+  the image (`ghcr.io/likho-ai/<repo>:x.y.z`) or the package. Commits without a type are not in
+  the changelog. likho-contracts is still tagged by hand (its Go module needs its own tag).
+* **Dependencies** are Renovate's (settings in this repository's `default.json`): one pull request
+  a week per repository for minor and patch updates, one per image and per major update, Likho's
+  own packages at once, a Dependency Dashboard issue in each repository.
+* **Reviews**: `.github/CODEOWNERS` in each repository names who is asked.
+* **`main`** takes changes only through pull requests whose CI is green; no force pushes, no
+  deletion. Release pull requests are opened by a bot, so CI does not run on them: an admin
+  merges them past the check (they change only the version and the changelog).
+
 ## Interfaces
 
 * A gRPC service, an event or a REST path is changed in `likho-contracts` first, then in the

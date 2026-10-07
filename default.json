@@ -1,0 +1,32 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Renovate settings shared by every Likho repository: each repository's renovate.json extends local>likho-ai/.github.",
+  "extends": ["config:recommended", ":semanticCommits", ":dependencyDashboard"],
+  "timezone": "Asia/Kolkata",
+  "schedule": ["before 10am on monday"],
+  "prConcurrentLimit": 5,
+  "prHourlyLimit": 2,
+  "labels": ["dependencies"],
+  "lockFileMaintenance": { "enabled": true, "schedule": ["before 10am on the first day of the month"] },
+  "packageRules": [
+    {
+      "description": "Minor and patch updates of stable packages in one pull request a week per repository; images (a database upgrade is a decision) get one each",
+      "matchDatasources": ["!docker"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchCurrentVersion": "!/^v?0\\./",
+      "groupName": "minor and patch updates"
+    },
+    {
+      "description": "Likho's own packages and workflows: as soon as they are released",
+      "matchPackageNames": ["@likho-ai/**", "likho-ai/**", "github.com/likho-ai/**", "likho-contracts", "likho-hinglish"],
+      "groupName": "likho packages",
+      "schedule": ["at any time"]
+    },
+    {
+      "description": "GitHub Actions: grouped, monthly",
+      "matchManagers": ["github-actions"],
+      "groupName": "github actions",
+      "schedule": ["before 10am on the first day of the month"]
+    }
+  ]
+}
